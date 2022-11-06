@@ -11,6 +11,6 @@
       <ColorPicker fx:id="colorPicker" layoutX="187.0" layoutY="21.0" />
       <Button fx:id="undoButton" layoutX="734.0" layoutY="21.0" mnemonicParsing="false" text="Undo" />
       <Button fx:id="redoButton" layoutX="672.0" layoutY="21.0" mnemonicParsing="false" text="Redo" />
-      <ChoiceBox fx:id="chooseSize" layoutX="339.0" layoutY="21.0" prefWidth="150.0" />
+      <TextField fx:id="shapeSize" layoutX="335.0" layoutY="21.0" prefHeight="25.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

@@ -10,7 +10,7 @@ public class observableShape extends Shape{
     ObjectProperty<Color> color = new SimpleObjectProperty<>();
 
     public observableShape(Shape shape){
-        super(shape.getX (), shape.getY(), shape.getColor());
+        super(shape.getX (), shape.getY(), shape.getColor(), shape.getSizeOfShape());
         this.shape = shape;
     }
 

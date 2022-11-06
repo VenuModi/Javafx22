@@ -7,13 +7,15 @@ public abstract class Shape {
 
     private final double x;
     private final double y;
+    private final Double sizeOfShape;
     private Color color;
 
-    public Shape(double x, double y, Color color) {
+    public Shape(double x, double y, Color color, Double sizeOfShape) {
 
         this.x = x;
         this.y = y;
         this.color = color;
+        this.sizeOfShape = sizeOfShape;
 
     }
 
@@ -30,14 +32,19 @@ public abstract class Shape {
     }
 
     public void setColor(Color color) {
-
         this.color = color;
     }
+
+    public Double getSizeOfShape() {
+        return sizeOfShape;
+    }
+
     public abstract void draw(GraphicsContext graphicsContext);
-    public static Shape createShape(ShapeType type, double x, double y, Color color){
+    public static Shape createShape(ShapeType type, double x, double y, Color color, Double sizeOfShape){
         return switch (type){
-            case CIRCLE -> new Circle(x,y, color);
-            case TRIANGLE -> new Triangle(x,y, color);
+            case CIRCLE -> new Circle(x,y, color,sizeOfShape);
+            case TRIANGLE -> new Triangle(x,y, color, sizeOfShape);
+            case SQUARE -> new Square(x,y, color, sizeOfShape);
         };
     }
 }

@@ -7,10 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
@@ -29,7 +26,7 @@ public class shapeController {
     private Button redoButton;
 
     @FXML
-    private ChoiceBox chooseSize;
+    private TextField shapeSize;
 
     private GraphicsContext graphicsContext;
 
@@ -41,7 +38,7 @@ public class shapeController {
         shapes.setItems(shapeTypesList);
         shapes.valueProperty().bindBidirectional(model.currentShapeTypeProperty());
         model.getShapes().addListener(this::listChanged);
-        chooseSize.setValue("80");
+        shapeSize.textProperty().bindBidirectional(model.shapeSizeProperty());
 
         colorPicker.valueProperty().bindBidirectional(model.colorPickerProperty());
 
@@ -57,10 +54,11 @@ public class shapeController {
     public void onCanvasClicked(MouseEvent mouseEvent) {
         if (mouseEvent.isPrimaryButtonDown()){
               model.getShapes().stream().sorted().reduce((first, second) -> second).ifPresent(shape -> shape.setColor(model.getCurrentColor()));
+
         }
 
         //Create shape
-        Shape shape = Shape.createShape(model.getCurrentShape(), mouseEvent.getX(), mouseEvent.getY(),model.getCurrentColor());
+        Shape shape = Shape.createShape(model.getCurrentShape(), mouseEvent.getX(), mouseEvent.getY(),model.getCurrentColor(), model.convertShapeSizeToDouble());
         model.addShape(shape); //add shape
         
     }

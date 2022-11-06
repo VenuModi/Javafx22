@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iths.se.tt.javafx.lab3.labbration3.shapeController">
+   <children>
+      <Canvas fx:id="canvas" height="733.0" layoutY="67.0" onMouseClicked="#onCanvasClicked" width="800.0" />
+      <ChoiceBox fx:id="shapes" layoutX="22.0" layoutY="21.0" prefWidth="150.0" />
+      <ColorPicker fx:id="colorPicker" layoutX="187.0" layoutY="21.0" />
+      <Button fx:id="undoButton" layoutX="734.0" layoutY="21.0" mnemonicParsing="false" text="Undo" />
+      <Button fx:id="redoButton" layoutX="672.0" layoutY="21.0" mnemonicParsing="false" text="Redo" />
+      <ChoiceBox fx:id="chooseSize" layoutX="339.0" layoutY="21.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>
